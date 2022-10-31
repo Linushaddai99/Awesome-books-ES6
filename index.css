@@ -24,18 +24,12 @@ nav li {
   cursor: pointer;
 }
 
-.clock {
+#timer {
   color: white;
-  display: flex;
-  justify-content: space-evenly;
   margin-top: 50px;
   margin-left: auto;
   width: 300px;
-  max-width: 100%;
-}
-
-.clock li {
-  display: inline-block;
+  text-align: right;
 }
 
 main {

@@ -1,14 +1,13 @@
 import { Book } from "./Book.js";
 import { addBook } from "./addBooks.js";
 import { displayBook } from "./displayBook.js";
+import { DateTime } from "./luxon.js";
 
 
 const bookName = document.querySelector('.bookName');
 const bookAuthor = document.querySelector('.bookAuthor');
 const form = document.querySelector('.addBook');
-const bookContainer = document.querySelector('.book-container');
 const bookList = JSON.parse(localStorage.getItem('bookList')) || [];
-// const bookList = [];
 
 const bookForm = document.querySelector('#bookForm');
 const bookSection = document.querySelector('#bookList');
@@ -81,43 +80,10 @@ contactBtn.addEventListener('click', () => {
   });
 });
 
-
-// const initial = () => {
-//   bookSection.classList.remove('hide');
-//   listArr.forEach((item) => {
-//     item.classList.add('hide');
-//   });
-// };
-
-// window.onload = initial();
-
-const clock = document.querySelector('.clock');
+const clock = document.querySelector('#timer');
 
 const time = () => {
-  const now = new Date();
-
-  const months = ['January', 'February', 'March', ' April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-  const year = now.getFullYear();
-  const month = now.getMonth();
-  const day = now.getDate();
-  const h = now.getHours();
-  const m = now.getMinutes();
-  const s = now.getSeconds();
-
-  const html = `
-    <span class="month">${months[month]}, </span>
-    <span class="day">${day},</span>
-    <span class="year">${year}, </span>
-    <ul>
-        <li class="hour">${h}:</li>
-        <li class="minutes">${m}:</li>
-        <li class="seconds">${s}</li>
-    </ul>
-    `;
-  clock.innerHTML = html;
-};
+  clock.textContent = DateTime.now().toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+}
 
 setInterval(time, 1000);
-
-  
