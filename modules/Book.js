@@ -1,0 +1,7 @@
+export class Book {
+    constructor(name, author) {
+      this.name = name;
+      this.author = author;
+      this.id = new Date();
+    }
+}
