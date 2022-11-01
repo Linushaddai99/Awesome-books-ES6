@@ -1,8 +1,7 @@
-import { Book } from "./Book.js";
-import { addBook } from "./addBooks.js";
-import { displayBook } from "./displayBook.js";
-import { DateTime } from "./luxon.js";
-
+import Book from './Book.js';
+import addBook from './addBooks.js';
+import displayBook from './displayBook.js';
+import { DateTime } from './luxon.min.js';
 
 const bookName = document.querySelector('.bookName');
 const bookAuthor = document.querySelector('.bookAuthor');
@@ -24,27 +23,25 @@ const contactArr = [bookForm, bookSection];
 const message = document.querySelector('.message');
 
 const redirect = () => {
-    bookSection.classList.remove('hide');
-    listArr.forEach((item) => {
-      item.classList.add('hide');
-    });
-  }
-  
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    message.textContent = '';
-    const book = new Book(bookName.value, bookAuthor.value);
-    console.log(book)
-    bookList.push(book);
-    console.log(bookList)
-    addBook(bookList);
-    form.reset();
-    redirect();
+  bookSection.classList.remove('hide');
+  listArr.forEach((item) => {
+    item.classList.add('hide');
   });
-  
-  bookList.forEach((book) => {
-    displayBook(book);
-  });
+};
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  message.textContent = '';
+  const book = new Book(bookName.value, bookAuthor.value);
+  bookList.push(book);
+  addBook(bookList);
+  form.reset();
+  redirect();
+});
+
+bookList.forEach((book) => {
+  displayBook(book);
+});
 
 if (!bookList.length) {
   message.innerHTML = 'click Add new link to add a new book';
@@ -84,6 +81,6 @@ const clock = document.querySelector('#timer');
 
 const time = () => {
   clock.textContent = DateTime.now().toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
-}
+};
 
 setInterval(time, 1000);
