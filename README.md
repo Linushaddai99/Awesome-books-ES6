@@ -16,6 +16,9 @@ In this project, I were able to build an application that stores a list of books
 - cd Awesome-Books-ES6
 - code .
 
+### live Demo
+`https://linushaddai99.github.io/Awesome-books-ES6/`
+
 
 👤 **Author1**
 
